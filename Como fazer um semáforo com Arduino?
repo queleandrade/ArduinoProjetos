@@ -1,0 +1,22 @@
+void setup() {
+  for(int porta = 8; porta < 11; porta++){
+       pinMode(porta,OUTPUT);
+ }
+}
+ 
+void loop(){
+ //controle do led verde
+    digitalWrite(8,HIGH);
+    delay(4000);
+    digitalWrite(8,LOW);
+
+//controle do led amarelo
+   digitalWrite(9,HIGH);
+   delay(2000);
+   digitalWrite(9,LOW);
+
+ //controle do led vermelho
+    digitalWrite(10,HIGH);
+    delay(4000);
+    digitalWrite(10,LOW);
+}
