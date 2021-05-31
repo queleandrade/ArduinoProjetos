@@ -1,0 +1,25 @@
+
+
+char matriz[4][4]={
+  {'c', 'a', 'b', 'o'},
+  {'b', 'o', 'c', 'a'},
+  {'f', 'o', 'c', 'a'},
+  {'c', 'a', 'f', 'e'} };
+  
+void setup(){
+  Serial.begin(9600); 
+}
+
+void loop(){
+  for(int linha = 0; linha < 4; linha++){
+    Serial.print("Na linha ");
+    Serial.print(linha);
+    Serial.print(":");
+    
+    for(int coluna = 0; coluna < 4; coluna++){
+      Serial.print(matriz[linha][coluna]);
+      delay(1500);
+    }
+    Serial.println();
+  }
+}
