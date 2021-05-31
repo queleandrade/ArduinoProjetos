@@ -3,4 +3,4 @@ Bem-vindo, fanáticos do Arduino! Esse espaço tem vários códigos e sendo alim
 
 Instagram: https://www.instagram.com/arduino_projetos/
 
-Youtube: youtube.com/c/ArduinoProjetos
+Youtube: https://www.youtube.com/c/ArduinoProjetos
