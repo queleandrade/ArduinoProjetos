@@ -1,0 +1,43 @@
+int led_vermelho=7;
+int led_verde=6;
+int led_azul=5;
+
+void setup(){
+  pinMode(led_vermelho,OUTPUT);
+  pinMode(led_verde, OUTPUT);
+  pinMode(led_azul, OUTPUT);
+  apagaled();
+}
+
+void loop(){
+  liga_vermelho();
+  delay(1000);
+  liga_verde();
+  delay(1000);
+  liga_azul();
+  delay(1000);
+}
+
+void liga_vermelho(){
+  digitalWrite(led_vermelho,LOW);
+  digitalWrite(led_verde,HIGH);
+  digitalWrite(led_azul,HIGH);
+}
+
+void liga_verde(){
+  digitalWrite(led_vermelho,HIGH);
+  digitalWrite(led_verde,LOW);
+  digitalWrite(led_azul,HIGH);
+}
+
+void liga_azul(){
+  digitalWrite(led_vermelho,HIGH);
+  digitalWrite(led_verde,HIGH);
+  digitalWrite(led_azul,LOW);
+}
+
+void apagaled(){
+  digitalWrite(led_vermelho,HIGH);
+  digitalWrite(led_verde,HIGH);
+  digitalWrite(led_azul,HIGH);
+}
