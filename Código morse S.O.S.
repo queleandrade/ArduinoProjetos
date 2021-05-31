@@ -1,0 +1,33 @@
+int led = 7; //pino 7
+
+void setup(){
+  pinMode(led,OUTPUT);
+}
+void loop(){
+  for(int x = 0; x < 3; x++){ //executa 3 vezes e representa os 3 pontos
+    digitalWrite(led,HIGH);
+    delay(150);
+    digitalWrite(led,LOW);
+    delay(100);
+  }
+  
+  delay(100); //marcar o intervalo entre as letras
+  
+  for(int x = 0; x < 3; x++){ // executa 3 vezes e representa os traços
+    digitalWrite(led,HIGH);
+    delay(500);
+    digitalWrite(led,LOW);
+    delay(150);
+  }
+  
+  delay(100); 
+  
+  for(int x = 0; x < 3; x++){ 
+    digitalWrite(led,HIGH);
+    delay(150);
+    digitalWrite(led,LOW);
+    delay(100);
+  }
+  
+  delay(5000); //marcar um tempo de espera entre a execução S.O.S. 
+}
