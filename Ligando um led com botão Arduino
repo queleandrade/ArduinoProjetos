@@ -1,0 +1,19 @@
+
+int led = 2;
+int botao = 12;
+int estadoBotao; //LOW ou HIGH
+
+void setup(){
+  pinMode(led, OUTPUT);
+  pinMode(botao, INPUT);
+}
+
+void loop(){
+  estadoBotao = digitalRead(botao); 
+  if (estadoBotao == HIGH){
+    digitalWrite(led, HIGH);
+  }
+  while (estadoBotao == LOW){
+    delay(100);
+  }
+}
