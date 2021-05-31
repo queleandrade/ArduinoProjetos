@@ -1,0 +1,16 @@
+void setup(){
+  Serial.begin(9600);
+  for (int i = 2; i <= 10; i++){
+    pinMode(i, OUTPUT);
+  }
+}
+
+void loop(){
+  for (int i = 2; i <= 10; i++){
+    digitalWrite(i, HIGH);
+    Serial.print("Led: ");
+    Serial.println(i-1);
+    delay(2000);
+    digitalWrite(i,LOW);
+  }
+}
