@@ -1,0 +1,25 @@
+
+int pinoLed = 11; //pino 11
+ 
+void setup() {
+  pinMode(pinoLed, OUTPUT);
+}
+ 
+void loop(){
+  aumentaBrilho(5);
+  abaixaBrilho(5);
+}
+ 
+void aumentaBrilho(int incrementando){
+  for (byte valor = 0 ; valor < 255; valor+=incrementando){
+    analogWrite(pinoLed, valor);
+    delay(30);
+  } 
+}
+ 
+void abaixaBrilho(int decrementando){
+  for (byte valor = 255; valor > 0; valor-=decrementando){
+    analogWrite(pinoLed, valor); 
+    delay(30); 
+  }
+}
