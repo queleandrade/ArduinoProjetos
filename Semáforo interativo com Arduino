@@ -1,0 +1,62 @@
+nt carroVermelho = 13; 
+int carroAmarelo = 12; 
+int carroVerde = 11; 
+int pessoaVerde = 2;
+int pessoaVermelho = 3; 
+int botao = 7;
+unsigned long mudatempo;
+ 
+void setup() {
+  mudatempo = millis();
+  
+  pinMode(carrovermelho, OUTPUT);
+  pinMode(carroamarelo, OUTPUT);
+  pinMode(carroverde, OUTPUT);
+  pinMode(pessoavermelho, OUTPUT);
+  pinMode(pessoaverde, OUTPUT);
+  pinMode(botao, INPUT);
+  
+  digitalWrite(carroverde, HIGH);
+  digitalWrite(pessoavermelho, HIGH);
+  digitalWrite(carrovermelho, LOW);
+  digitalWrite(carroamarelo, LOW);
+  digitalWrite(pessoaverde, LOW);
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  int estado = digitalRead(botao);
+  delay(50);
+  Serial.println(estado);
+ 
+  if (estado == HIGH && (millis() - mudatempo) > 5000) {
+    mudaluzes();
+  }
+}
+ 
+void mudaluzes() {
+  digitalWrite(carroverde, LOW);    
+  digitalWrite(carroamarelo, HIGH); 
+  delay(4000); 
+  
+  digitalWrite(carroamarelo, LOW); 
+  digitalWrite(carrovermelho, HIGH); 
+ 
+  digitalWrite(pessoavermelho, LOW);
+  digitalWrite(pessoaverde, HIGH);
+  delay(5000);
+  
+  // pisca a luz verde dos pedestres
+  for (int x=0; x < 10; x++) {
+    digitalWrite(pessoaverde, LOW);
+    delay(160);
+    digitalWrite(pessoaverde, HIGH);
+    delay(160);
+  }
+  digitalWrite(pessoaverde, LOW);
+  digitalWrite(carrovermelho, LOW);
+  digitalWrite(pessoavermelho, HIGH);
+  digitalWrite(carroverde, HIGH);
+ 
+  mudatempo = millis();
+ }
