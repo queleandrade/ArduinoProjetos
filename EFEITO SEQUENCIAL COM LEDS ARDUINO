@@ -1,0 +1,33 @@
+byte led[] = {4,5,6,7,8,9,10,11,12,13};
+int leddelay(65);
+int direcao = 1;
+int ledatual = 0;
+unsigned long mudaTempo;
+
+void setup(){
+  for (int x = 0; x < 10; x++){ 
+    pinMode(led[x], OUTPUT);
+  }
+  mudaTempo = millis();
+}
+
+void loop(){
+  if ((millis()-mudaTempo)>leddelay){
+    mudaLED();//funcao
+    mudaTempo = millis();
+  }
+}
+
+void mudaLED(){
+  for (int x = 0; x < 10; x++){
+    digitalWrite(led[x], LOW); //apaga todos os LEDS
+  }
+  digitalWrite(led[ledatual], HIGH); //acende o LED atual
+  ledatual += direcao; //ledatual = ledatual + direcao
+  if (ledatual == 9){
+    direcao = -1;
+  }
+  if (ledatual == 0){
+    direcao = 1;
+  }
+}
