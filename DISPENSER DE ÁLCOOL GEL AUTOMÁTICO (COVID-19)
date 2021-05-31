@@ -1,0 +1,115 @@
+#include "Ultrasonic.h" 
+
+
+
+int rele1 = 2;
+
+int rele2 = 3;
+
+
+
+const int echoPin = 7; 
+
+const int trigPin = 6; 
+
+ 
+
+Ultrasonic ultrasonic(trigPin,echoPin); 
+
+ 
+
+int distancia; 
+
+String result; 
+
+  
+
+void setup()
+
+{
+
+  pinMode(rele1, OUTPUT); 
+
+  pinMode(rele2, OUTPUT);
+
+  digitalWrite(rele1, LOW); 
+
+  digitalWrite(rele2, LOW);
+
+  pinMode(echoPin, INPUT);
+
+  pinMode(trigPin, OUTPUT); 
+
+  Serial.begin(9600); 
+
+}
+
+   
+
+void loop()
+
+{
+
+  hcsr04();
+
+  Serial.print ("Distancia: ");
+
+  Serial.println (distancia);
+
+
+
+
+
+  if (distancia <= 4) {
+
+  delay(1000);
+
+  digitalWrite(rele2, HIGH);  
+
+  digitalWrite(rele1, LOW); 
+
+  delay(200);
+
+  digitalWrite(rele2, LOW);
+
+  digitalWrite(rele1, LOW);  
+
+  delay(200); 
+
+  digitalWrite(rele2, LOW); 
+
+  digitalWrite(rele1, HIGH);  
+
+  delay(200);
+
+  digitalWrite(rele2, LOW);
+
+  digitalWrite(rele1, LOW);  
+
+  delay(200);
+
+  }
+
+}
+
+
+
+void hcsr04(){
+
+    digitalWrite(trigPin, LOW); 
+
+    delayMicroseconds(2); 
+
+    digitalWrite(trigPin, HIGH); 
+
+    delayMicroseconds(10); 
+
+    digitalWrite(trigPin, LOW); /
+
+    distancia = (ultrasonic.Ranging(CM)); 
+
+    result = String(distancia);
+
+    delay(250); 
+
+ }
