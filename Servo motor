@@ -1,0 +1,25 @@
+#include <Servo.h>
+
+#define SERVO 6
+
+Servo s; //variavel servo
+int pos; //posicao servo
+
+
+void setup(){
+  s.attach(SERVO);
+  Serial.begin(9600);
+  s.write(0); // o valor do angulo que inicia o servo motor
+}
+
+void loop(){
+  for(pos = 0; pos < 90; pos++){ //pos = pos + 1 -> pos = 0 + 1 = 1
+    s.write(pos);
+   delay(15);
+  }
+delay(1000);
+  for(pos = 90; pos >= 0; pos--){ //pos = pos - 1 -> pos = 90 - 1 = 89
+    s.write(pos);
+    delay(15);
+  }
+}
