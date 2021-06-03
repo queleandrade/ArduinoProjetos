@@ -1,0 +1,20 @@
+#include <VarSpeedServo.h>
+VarSpeedServo servo_base;
+VarSpeedServo servo_inclinacao;
+int pino_x = A4;
+int pino_y = A5;
+int val_x, val_y;
+
+void setup() {
+  servo_base.attach(7, 1, 180);
+  servo_inclinacao.attach(8, 1, 180); }
+
+void loop() {
+  val_x = analogRead(pino_x);
+  val_x = map(val_x, 0, 1023, 1, 180);
+  servo_base.slowmove(val_x, 60);
+  val_y = analogRead(pino_y);
+  val_y = map(val_y, 0, 1023, 1, 180);
+  servo_inclinacao.slowmove(val_y, 60);  
+  delay(30);
+}
