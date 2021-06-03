@@ -1,0 +1,42 @@
+
+
+
+#include "DHT.h"
+
+#define DHTPIN A1;
+#define DHTTYPE DHT11;
+
+DHT dht(DHTPIN, DHTTYPE);
+
+int rele = 2;
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+  pinMode(rele, OUTPUT);
+  digitalWrite(rele, HIGH);
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+
+  if(isnan(t)||isnan(h)){
+    Serial.println("Falha ao ler DHT");
+  }
+  else{
+    Serial.print("Umidade: ");
+    Serial.print(h);
+    Serial.println("%t");
+    Serial.print("Temperatura: ");
+    Serial.print(t);
+    Serial.println(" °C");
+    delay(2000);
+  }
+
+  if (t >= 31){
+    digitalWrite(rele, LOW);
+  }else{
+    digitalWrite(rele, HIGH);
+  }
+}
