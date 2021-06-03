@@ -1,0 +1,19 @@
+int led = 13;
+int sensorLuz = A0;
+int valorLuz = 0;
+
+void setup(){
+  pinMode(led, OUTPUT);
+}
+
+void loop(){
+  valorLuz = analogRead(sensorLuz);
+  
+  if(valorLuz < 750){
+    digitalWrite(led, HIGH);
+  }
+  else{
+    digitalWrite(led, LOW);
+  }
+  delay(10);
+}
