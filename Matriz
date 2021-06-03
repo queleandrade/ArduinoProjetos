@@ -1,0 +1,103 @@
+
+void setup(){
+  for(int i = 2; i <=10; i++){
+    pinMode(i, OUTPUT);
+    digitalWrite(i, LOW);
+  }
+}
+
+void loop(){
+  for(int i = 2; i <= 10; i++){
+    digitalWrite(i, HIGH);
+    delay(1000);
+    digitalWrite(i, LOW);
+  }
+
+  for(int i = 2; i <= 2; i++){
+    digitalWrite(i, HIGH);
+    digitalWrite(i+1, HIGH);
+    digitalWrite(i+2, HIGH);
+    delay(2500);
+    digitalWrite(i, LOW);
+    digitalWrite(i+1, LOW);
+    digitalWrite(i+2, LOW);
+    delay(1000);
+  }
+  
+  for(int i = 5; i <= 5; i ++){
+    digitalWrite(i, HIGH);
+    digitalWrite(i+1, HIGH);
+    digitalWrite(i+2, HIGH);
+    delay(2500);
+    digitalWrite(i, LOW);
+    digitalWrite(i+1, LOW);
+    digitalWrite(i+2, LOW);
+    delay(1000);
+  }
+  
+  for(int i = 8; i <=8; i++){
+    digitalWrite(i, HIGH);
+    digitalWrite(i+1, HIGH);
+    digitalWrite(i+2, HIGH);
+    delay(2500);
+    digitalWrite(i, LOW);
+    digitalWrite(i+1, LOW);
+    digitalWrite(i+2, LOW);
+    delay(1000);
+  }
+  
+  for(int i = 2; i <= 2; i++){
+    digitalWrite(i, HIGH);
+    digitalWrite(i+3, HIGH);
+    digitalWrite(i+6, HIGH);
+    delay(2500);
+    digitalWrite(i, LOW);
+    digitalWrite(i+3, LOW);
+    digitalWrite(i+6, LOW);
+    delay(1000);
+  }
+  
+  for(int i = 3; i<= 3; i++){
+    digitalWrite(i, HIGH);
+    digitalWrite(i+3, HIGH);
+    digitalWrite(i+6, HIGH);
+    delay(2500);
+    digitalWrite(i, LOW);
+    digitalWrite(i+3, LOW);
+    digitalWrite(i+6, LOW);
+    delay(1000);
+  }
+  
+  for(int i = 4; i <= 4; i++){
+    digitalWrite(i, HIGH);
+    digitalWrite(i+3, HIGH);
+    digitalWrite(i+6, HIGH);
+    delay(2500);
+    digitalWrite(i, LOW);
+    digitalWrite(i+3, LOW);
+    digitalWrite(i+6, LOW);
+    delay(1000);
+  }
+  
+  for(int i = 2; i <= 2; i++){
+    digitalWrite(i, HIGH);
+    digitalWrite(i+4, HIGH);
+    digitalWrite(i+8, HIGH);
+    delay(2500);
+    digitalWrite(i, LOW);
+    digitalWrite(i+4, LOW);
+    digitalWrite(i+8, LOW);
+    delay(1000);
+  }
+  
+  for(int i = 4; i<= 4; i++){
+    digitalWrite(i, HIGH);
+    digitalWrite(i+4, HIGH);
+    digitalWrite(i+8, HIGH);
+    delay(2500);
+    digitalWrite(i, LOW);
+    digitalWrite(i+4, LOW);
+    digitalWrite(i+8, LOW);
+    delay(1000);
+  }
+}
