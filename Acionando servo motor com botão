@@ -1,0 +1,23 @@
+#include <Servo.h>
+
+Servo s;
+int botao = 7;
+
+void setup(){
+  pinMode(botao, INPUT_PULLUP);
+}
+
+void loop(){
+  s.attach(9);
+  if(digitalRead(botao) == LOW){
+    for(int angulo = 0; angulo <= 180; angulo ++){
+      s.write(angulo);
+      delay(10);
+    }
+    for(int angulo = 180; angulo >= 0; angulo --){
+      s.write(angulo);
+      delay(10);
+    }
+  }
+  s.detach();
+}
