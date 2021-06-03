@@ -1,0 +1,59 @@
+int led_vermelho = 7; 
+int led_verde = 6; 
+int led_azul = 5; 
+int pot = A0;
+
+int valorPot;
+ 
+void setup()
+{
+  pinMode(led_vermelho, OUTPUT);
+  pinMode(led_verde, OUTPUT);
+  pinMode(led_azul, OUTPUT);
+  apagaLed();
+}
+ 
+void loop()
+{
+  valorPot = analogRead(pot); // 0 a 1023
+  if (valorPot => 0 && valorPot <= 256){
+    apagaLed();
+  }
+  if (valorPot > 256 && valorPot < 512){
+    ligaVermelho();
+  }
+  if (valorPot > 512 && valorPot < QUE 768){
+    ligaVerde();
+  }
+  if (valorPot > 768 && valorPot <= 1023){
+    ligaAzul();
+  }
+}
+ 
+void ligaVermelho()
+{
+  digitalWrite(led_vermelho, LOW);
+  digitalWrite(led_verde, HIGH);
+  digitalWrite(led_azul, HIGH);
+}
+ 
+void ligaVerde()
+{
+  digitalWrite(led_vermelho, HIGH);
+  digitalWrite(led_verde, LOW);
+  digitalWrite(led_azul, HIGH);
+}
+ 
+void ligaAzul()
+{
+  digitalWrite(led_vermelho, HIGH);
+  digitalWrite(led_verde, HIGH);
+  digitalWrite(led_azul, LOW);
+}
+ 
+void apagaLed()
+{
+  digitalWrite(led_vermelho, HIGH);
+  digitalWrite(led_verde, HIGH);
+  digitalWrite(led_azul, HIGH);
+}
